@@ -129,49 +129,31 @@ public class TicTacToe
     public static boolean checkDiag1()
     {
         String[][] tempBoard = board;
-        int xCount = 0;
-        int oCount = 0;
-        for(int across = 0; across<board.length;across++)
+        boolean win = false;
+        if(board[0][0].equals("X") && board[1][1].equals("X") && board[2][2].equals("X"))
         {
-            if(board[across][across].equals("X"))
-            {
-                xCount++;
-            }
-            else if(board[across][across].equals("O"))
-            {
-                oCount++;    
-            }
+            win = true;
         }
-        if(xCount == 3 || oCount == 3)
+        else if(board[0][0].equals("0") && board[1][1].equals("O") && board[2][2].equals("O"))
         {
-            return true;    
+            win = true;  
         }
-        return false;
+        return win;
     }
    
     public static boolean checkDiag2()
     {
         String[][] tempBoard = board;
-        int xCount = 0;
-        int oCount = 0;
-        int i = 0;
-        for(int across = 2; across<0;across--)
+        boolean win = false;
+        if(board[0][2].equals("X") && board[1][1].equals("X") && board[2][0].equals("X"))
         {
-            if(board[across][i].equals("X"))
-            {
-                xCount++;
-            }
-            else if(board[across][i].equals("O"))
-            {
-                oCount++;    
-            }
-            i++;
+            win = true;
         }
-        if(xCount == 3 || oCount == 3)
+        else if(board[0][2].equals("0") && board[1][1].equals("O") && board[2][0].equals("O"))
         {
-            return true;    
+            win = true;  
         }
-        return false;
+        return win;
     }
     //This method returns a boolean that checks if someone has won the game
     public static boolean checkWin()
